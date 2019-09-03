@@ -3,6 +3,7 @@ class Chatroom {
     constructor(room,username) {
         this.room = room;
         this.username = username;
+        this.unsub;
         this.chats = db.collection('chats');
     }
 
@@ -18,7 +19,9 @@ async addChat(message) {
     return response;
     }
     getChats(callback) {
-        this.chats
+       this.unsub = this.chats
+            .where('room', '==', this.room)
+            .orderBy('created_at')
             .onSnapshot(snapshot => {
                 snapshot.docChanges().forEach(change => {
                     if(change.type === 'added') {
@@ -27,14 +30,14 @@ async addChat(message) {
                 });
             });
     }
+    updateName(username) {
+        this.username = username;
+    }
+    updateRoom(room) {
+        this.room = room;
+        console.log('room updated');
+        if(this.unsub) {
+            this.unsub();
+        }
+    }
 }
-
-const chatroom = new Chatroom('gaming','andrii');
-
-/*chatroom.addChat('Hello every One - atemept number 2!')
-    .then(() => console.log('added'))
-    .catch(err => console.log(err)) */
-
-chatroom.getChats(data => {
-    console.log(data);
-})
