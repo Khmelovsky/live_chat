@@ -3,6 +3,7 @@ const chatList = document.querySelector('.chat-list');
 const newChatForm = document.querySelector('.new-chat');
 const newNameForm = document.querySelector('.new-name');
 const updateMsg = document.querySelector('.update-msg');
+const room = document.querySelector('.chat-rooms');
 
 newChatForm.addEventListener('submit', event => {
     event.preventDefault();
@@ -27,6 +28,18 @@ newNameForm.addEventListener('submit', event =>{
     setTimeout(() => {
         updateMsg.innerText = '';
     }, 3000);
+});
+
+room.addEventListener('click', event => {
+    event.preventDefault();
+    
+    console.log(event);
+
+    if(event.target.tagName = "BUTTON") {
+        chatUI.clear();
+        chatroom.updateRoom(event.target.getAttribute('id'));
+        chatroom.getChats(chat => chatUI.render(chat));
+    }
 });
 
 
