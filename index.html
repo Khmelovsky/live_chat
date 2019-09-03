@@ -50,9 +50,30 @@
             </form>
     </div>
     
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-firestore.js"></script>
 
-    <script src="/scripts/chat.js"></script>
-    <script src="/scripts/ui.js"></script>
-    <script src="/scripts/app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyC885BRmVI7CgIJsOptN8naENtMFhVSTug",
+        authDomain: "live-chat-d326a.firebaseapp.com",
+        databaseURL: "https://live-chat-d326a.firebaseio.com",
+        projectId: "live-chat-d326a",
+        storageBucket: "",
+        messagingSenderId: "508249611506",
+        appId: "1:508249611506:web:ea53fb3277508a0b"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    </script>
+    <script src="scripts/chat.js"></script>
+    <script src="scripts/ui.js"></script>
+    <script src="scripts/app.js"></script>
 </body>
 </html>
