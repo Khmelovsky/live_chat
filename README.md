@@ -2,7 +2,7 @@
 
 A simple live chat application built with **vanilla JavaScript** and **CSS**.
 
-![alt text](https://github.com/ainkhm/live_chat/blob/main/cover.png?raw=true)
+![alt text](https://github.com/ainkhm/live_chat/blob/main/.github/cover.png?raw=true)
 
 ## Features
 - **Real-Time Messaging**: Send and receive messages in real-time.
